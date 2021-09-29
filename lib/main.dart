@@ -20,7 +20,7 @@ Future<Map> getData() async {
 }
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -31,8 +31,8 @@ class _HomeState extends State<Home> {
   final dolarController = TextEditingController();
   final euroController = TextEditingController();
 
-  late double dolar;
-  late double euro;
+  double dolar;
+  double euro;
 
   void _clearAll() {
     realController.text = "";
@@ -101,9 +101,8 @@ class _HomeState extends State<Home> {
                     ));
                   } else {
                     dolar =
-                        snapshot.data!["results"]["currencies"]["USD"]["buy"];
-                    euro =
-                        snapshot.data!["results"]["currencies"]["EUR"]["buy"];
+                        snapshot.data["results"]["currencies"]["USD"]["buy"];
+                    euro = snapshot.data["results"]["currencies"]["EUR"]["buy"];
 
                     return SingleChildScrollView(
                       padding: EdgeInsets.all(10.0),
